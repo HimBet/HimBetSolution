@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="HimBetMobile.Views.PlayersPage" Title="{Binding Title}" x:Name="BrowsePlayersPage">
+    <ContentPage.ToolbarItems>
+        <!--ToolbarItem Text="Add" Clicked="AddItem_Clicked" /-->
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <ListView x:Name="ItemsListView" ItemsSource="{Binding Players}" VerticalOptions="FillAndExpand" HasUnevenRows="true" RefreshCommand="{Binding LoadItemsCommand}" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsBusy, Mode=OneWay}" CachingStrategy="RecycleElement" ItemSelected="OnItemSelected">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                         <Grid RowSpacing="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition ></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" Grid.Row="0" Source="{Binding ImageURL}" />
+                            <Grid Grid.Column="1" Grid.Row="0" RowSpacing="1">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition ></RowDefinition>
+                                    <RowDefinition ></RowDefinition>
+                                </Grid.RowDefinitions>
+                            <Label Grid.Column="0"  Grid.Row="0" Text="{Binding FirstName}" d:Text="{Binding .}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="Small" />
+                            <Label Grid.Column="0" Grid.Row="1" Text="{Binding LastName}" d:Text="{Binding .}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Medium" />
+                            </Grid>
+                         </Grid>
+                        <!--StackLayout Padding="10">
+                         </-->
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

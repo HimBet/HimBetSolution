@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:d="http://xamarin.com/schemas/2014/forms/design" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" x:Class="HimBetMobile.Views.ItemDetailPage" Title="{Binding Title}">
+    <StackLayout Spacing="20" Padding="15"> 
+        <Image Source="{Binding Player.ImageURL}" HeightRequest="100" WidthRequest="100" />
+        <Grid Grid.Column="1" Grid.Row="0" RowSpacing="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition  Width="100"></ColumnDefinition>
+                <ColumnDefinition  Width="100"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  ></RowDefinition>
+                
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Column="1" HorizontalTextAlignment="End" Grid.Row="0" Text="{Binding Player.FirstName}" d:Text="{Binding .}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemTextStyle}" FontSize="Body" />
+            
+            <Label Grid.Column="2" HorizontalTextAlignment="Start" Grid.Row="0" Text="{Binding Player.LastName}" LineBreakMode="NoWrap" Style="{DynamicResource ListItemDetailTextStyle}" FontSize="Body" />
+        </Grid>
+ 
+        <Slider Maximum="{Binding LastYear}"  Minimum="{Binding FirstYear}" />
+        <Slider Maximum="12" Minimum="1" />
+    </StackLayout>
+</ContentPage>
